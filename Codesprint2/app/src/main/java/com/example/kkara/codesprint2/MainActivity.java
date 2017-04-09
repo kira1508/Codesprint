@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SeekBar;
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     SeekBar seek;
     Handler handler;
     Runnable runnable;
+    Button playpause;
 
 
 
@@ -36,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.listView);
         handler=new Handler();
         seek=(SeekBar)findViewById(R.id.seekbar);
+        playpause=(Button)findViewById(R.id.plpa_btn);
 
 
 
@@ -84,6 +87,19 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
 
+            }
+        });
+
+        playpause.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mediaPlayer.isPlaying()) {
+                    mediaPlayer.pause();
+                    playpause.setText("Play");
+                } else {
+                    mediaPlayer.start();
+                    playpause.setText("Pause");
+                }
             }
         });
 
