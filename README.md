@@ -1,4 +1,4 @@
-# Codesprint
+# Codesprint - A project for Google's Applied CS Course
 Musical Vehemence
 
 Our app is basically a music player,but with an additional feature.
